@@ -1,5 +1,6 @@
 from sys import exit
 from sys import argv
+import time
 
 """
 My Python game
@@ -25,6 +26,7 @@ was_bitten=False
 bitten=("no", "yes")[was_bitten]
 
 def show_stats():
+    print()
     print("====Current Stats====")
     print("Health:", health)
     print("Armor:", armor)
