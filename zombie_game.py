@@ -21,12 +21,15 @@ Stay put or go towards figure or walk away
 health=10
 armor=0
 attack_rating=1
+was_bitten=False
+bitten=("no", "yes")[was_bitten]
 
 def show_stats():
     print("====Current Stats====")
     print("Health:", health)
     print("Armor:", armor)
     print("Attack:", attack_rating)
+    print("Bitten?", bitten)
     print("=====================")
     print()
 
@@ -53,6 +56,22 @@ def sit_down():
 
     if "sit" in choice:
         dead("A shadowy figure grabs you, and starts eating your flesh. You can't escape.")
+    elif "get up" in choice:
+        print("You stand up and brush yourself off.")
+        print("Now that you have your bearings a little better.")
+        print("You can decided what you want to do.")
+        print()
+        print("Do you want to look around, or just start walking?")
+        choice=input("> ")
+
+        if "look" in choice:
+            look_around()
+        elif "walk" in choice:
+            start_walking()
+        else:
+            dead("You didn't make the right choice.")
+    else:
+        dead("You should have chosen to sit or get up now.... ")
 
 
 def dead(why):
