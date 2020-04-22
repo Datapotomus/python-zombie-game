@@ -36,9 +36,36 @@ def show_stats():
     print()
 
 
+def mod_health(points):
+    global health
+    health += int(points)
+
+def meet_figure():
+    print("meet_figure placeholder")
+
+
+def first_z_encounter():
+    print("first_z_encounter placeholder")
+
+def combat():
+    print("combat placeholder")
+
+
 def look_around():
     show_stats()
-    print("look_around Placeholder")
+    print("While looking around you see a shadowy figure in the distance comming towards you.")
+    print("Do you go towards the figure to meet them, start walking away, or wait to see what they do?")
+    choice=input("> ")
+
+    if "go" or "go towards" or "walk towards" in choice:
+        meet_figure()
+    elif "walk away" or "start walking" in choice:
+        start_walking()
+    elif "wait" in choice:
+        print("You wait for the figure to materialize.")
+        first_z_encounter()
+    else:
+        dead("You should have made better choices. Something grabs you from behind, and starts eating you.")
 
 
 def start_walking():
@@ -49,8 +76,7 @@ def start_walking():
 def sit_down():
     show_stats()
     print("You sit down for a minute to get your bearings.")
-    global health
-    health+=1
+    mod_health(1)
     print("You got one extra health, your health is now", health)
     show_stats()
     print("You now have a choice to make do you get up, or keep sitting?")
